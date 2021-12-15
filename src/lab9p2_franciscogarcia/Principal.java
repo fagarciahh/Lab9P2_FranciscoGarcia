@@ -2,6 +2,9 @@ package lab9p2_franciscogarcia;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -26,6 +29,15 @@ public class Principal extends javax.swing.JFrame {
         contraseña_rg = new javax.swing.JPasswordField();
         edad_rg = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
+        Interfaz = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        amigos_in = new javax.swing.JList<>();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         correo_lg = new javax.swing.JTextField();
         contraseña_lg = new javax.swing.JPasswordField();
@@ -119,6 +131,86 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jScrollPane1.setViewportView(amigos_in);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(242, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Amigos", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 235, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Solicitudes", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 235, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Chat", jPanel3);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setText("Interfaz Usuario");
+
+        logout.setText("LogOut");
+
+        javax.swing.GroupLayout InterfazLayout = new javax.swing.GroupLayout(Interfaz.getContentPane());
+        Interfaz.getContentPane().setLayout(InterfazLayout);
+        InterfazLayout.setHorizontalGroup(
+            InterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InterfazLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
+                    .addGroup(InterfazLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logout)))
+                .addContainerGap())
+        );
+        InterfazLayout.setVerticalGroup(
+            InterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InterfazLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(InterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -147,28 +239,27 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(ingresar_lg)
-                .addGap(27, 27, 27)
-                .addComponent(registro_lg)
-                .addGap(99, 99, 99))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(133, 133, 133)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(contraseña_lg, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(correo_lg)))
+                            .addComponent(correo_lg)
+                            .addComponent(contraseña_lg, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(118, 118, 118)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(ingresar_lg)
+                        .addGap(27, 27, 27)
+                        .addComponent(registro_lg)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +278,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingresar_lg)
                     .addComponent(registro_lg))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,6 +289,7 @@ public class Principal extends javax.swing.JFrame {
         if(LogIn()){
             JOptionPane.showMessageDialog(this,"Login correcto");
             correo = correo_lg.getText();
+            OpenInterfaz();
         }else{
             JOptionPane.showMessageDialog(this,"Hay algo mal");
         }
@@ -211,6 +303,7 @@ public class Principal extends javax.swing.JFrame {
         registro.setLocationRelativeTo(this);
         registro.setModal(true);
         registro.setVisible(true);
+        //this.setVisible(false);
 
     }//GEN-LAST:event_registro_lgActionPerformed
 
@@ -238,6 +331,8 @@ public class Principal extends javax.swing.JFrame {
                 nombre_rg.setText("");
                 contraseña_rg.setText("");
                 edad_rg.setValue(18);
+                registro.setVisible(false);
+                OpenInterfaz();
                 
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -247,14 +342,30 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void OpenInterfaz(){
+        Interfaz.pack();
+        Interfaz.setLocationRelativeTo(this);
+        Interfaz.setModal(true);
+        Interfaz.setVisible(true);
+        
+        StringTokenizer tokens = new StringTokenizer (amigos, ";");
+        
+        while (tokens.hasMoreTokens()) {
+            String str = tokens.nextToken();
+            listaAmigos.add(str);
+        }
+        
+    }
+    
     public boolean Registro(){
         
         db.conectar();
         try {
-            db.query.execute("select correo from Usuario");
+            db.query.execute("select correo,amigos from Usuario");
             ResultSet rs = db.query.getResultSet();
             while (rs.next()) {
                 if (rs.getString(1).equalsIgnoreCase(correo)) {
+                    amigos = rs.getString(2);
                     return true;
                 }
             }
@@ -269,11 +380,12 @@ public class Principal extends javax.swing.JFrame {
         db.conectar();
 
         try {
-            db.query.execute("select correo,contraseña from Usuario");
+            db.query.execute("select correo,contraseña,amigos from Usuario");
             ResultSet rs = db.query.getResultSet();
             while (rs.next()) {
                 if (rs.getString(1).equalsIgnoreCase(correo_lg.getText())
                         && rs.getString(2).equals(contraseña_lg.getText())) {
+                    amigos = rs.getString(3);
                     return true;
                 }
             }
@@ -318,22 +430,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     
-    /*
-    db.conectar();
-        try {
-            String n, c;
-            c = JOptionPane.showInputDialog("Edad");
-            n = JOptionPane.showInputDialog("correo");
-            db.query.execute("INSERT INTO Usuario"
-                    + " (correo,contraseña)"
-                    + " VALUES ('" + n + "', '" + c + "')");
-            db.commit();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        db.desconectar();
-    */
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Interfaz;
+    private javax.swing.JList<String> amigos_in;
     private javax.swing.JPasswordField contraseña_lg;
     private javax.swing.JPasswordField contraseña_rg;
     private javax.swing.JTextField correo_lg;
@@ -349,9 +449,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField nombre_rg;
     private javax.swing.JDialog registro;
     private javax.swing.JButton registro_lg;
     // End of variables declaration//GEN-END:variables
-String correo;
+
+String correo, amigos;
+ArrayList <String> listaAmigos = new ArrayList();
+ArrayList <String> personas = new ArrayList();
+ArrayList <Persona> Lista = new ArrayList();
 }
